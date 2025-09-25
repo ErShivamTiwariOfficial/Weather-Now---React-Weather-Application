@@ -88,7 +88,7 @@ index.js # React DOM rendering
 
 ## Live Demo
 
-[Insert your deployed app URL here, e.g., on CodeSandbox, Vercel, Netlify]
+https://wether-now.netlify.app/
 
 ---
 
