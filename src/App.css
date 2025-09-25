@@ -1,0 +1,245 @@
+/* App.css */
+
+.app-container {
+  max-width: 440px;
+  margin: 40px auto;
+  padding: 32px 24px 32px 24px;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: linear-gradient(140deg, #799fcf 5%, #b5c9e7 95%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(80, 120, 180, 0.15);
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-shadow: 0 2px 12px #799fcf66;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  padding: 12px 16px;
+  width: 65%;
+  min-width: 200px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #e5ecfa;
+  color: #2d3436;
+  outline: none;
+  transition: box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 2px 12px #799fcf88;
+}
+
+button {
+  padding: 12px 20px;
+  background: #356dd0;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #799fcf33;
+  transition: background 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+
+button:disabled {
+  background: #7facfa77;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background: #597fc0;
+  box-shadow: 0 4px 12px #356dd088;
+}
+
+.coordinates {
+  margin-top: 10px;
+  color: #ecf0fa;
+  font-size: 0.95rem;
+  font-style: italic;
+  word-wrap: break-word;
+}
+
+.error {
+  margin-top: 20px;
+  color: #e74c3c;
+  background: #fff1f1;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #e74c3c22;
+  word-wrap: break-word;
+}
+
+.weather-info {
+  margin-top: 32px;
+  background: #4f6c997a;
+  padding: 20px 28px 18px 28px;
+  border-radius: 14px;
+  text-align: left;
+  box-shadow: 0 6px 18px #799fcf44;
+  word-wrap: break-word;
+}
+
+.weather-info p {
+  font-size: 1.1rem;
+  margin: 9px 0;
+  color: #fff;
+}
+
+.weather-info strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Responsive Settings */
+
+@media (max-width: 520px) {
+  .app-container {
+    max-width: 90vw;
+    padding: 6vw 5vw 6vw 5vw;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+    margin-bottom: 24px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    min-width: unset;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  button {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 360px) {
+  .weather-info p {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Add to existing App.css */
+
+/* Fade-in animation for the weather info */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in animation when weather-info appears */
+.weather-info {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Smooth fade for errors */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.error {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Button hover bounce effect */
+@keyframes buttonBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+button:not(:disabled):hover {
+  animation: buttonBounce 0.3s ease;
+  /* Keep existing hover styles */
+  background-color: #597fc0;
+  box-shadow: 0 4px 12px #356dd088;
+}
+
+/* Input focus shadow glow */
+input[type="text"]:focus {
+  box-shadow: 0 0 8px 3px rgba(121, 159, 207, 0.7);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Backgrounds for different weather */
+
+.bg-clear {
+  background: linear-gradient(160deg, #56ccf2 0%, #2f80ed 100%);
+}
+
+.bg-cloudy {
+  background: linear-gradient(160deg, #757f9a 0%, #d7dde8 100%);
+}
+
+.bg-rain {
+  background: linear-gradient(160deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+}
+
+.bg-snow {
+  background: linear-gradient(160deg, #83a4d4 0%, #b6fbff 100%);
+}
+
+.bg-thunderstorm {
+  background: linear-gradient(160deg, #232526 0%, #1c1c1c 100%);
+}
+
+.app-container {
+  /* other styles */
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(80, 120, 180, 0.15);
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  transition: background 0.8s ease;
+}
+
+/* End of App.css */
