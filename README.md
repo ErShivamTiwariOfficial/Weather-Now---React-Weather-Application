@@ -88,13 +88,13 @@ index.js # React DOM rendering
 
 ## Live Demo
 
-[Insert your deployed app URL here, e.g., on CodeSandbox, Vercel, Netlify]
+https://wether-now.netlify.app/
 
 ---
 
 ## Contact
 
-Created by [Your Name] — feel free to connect!
+Created by Shivam Tiwari — feel free to connect!
 
 - GitHub: https://github.com/ErShivamTiwariOfficial
 - LinkedIn: https://www.linkedin.com/in/ershivamtiwari
