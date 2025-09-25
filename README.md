@@ -38,7 +38,7 @@ The project leverages the Open-Meteo API for weather and geocoding data.
 ## Installation & Setup Instructions
 
 1. **Clone the repository**
-git clone https://github.com/yourusername/weather-now.git
+git clone-- https://github.com/ErShivamTiwariOfficial/Weather-Now---React-Weather-Application
 cd weather-now
 
 
