@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from "react";
 import "./App.css";
 
@@ -100,29 +99,29 @@ function App() {
         const longitude = position.coords.longitude;
         setCoordinates({ lat: latitude, lon: longitude });
 
+        let locationName = `Lat: ${latitude.toFixed(2)}, Lon: ${longitude.toFixed(2)}`;
+
         try {
           const revGeoRes = await fetch(
             proxyUrl +
               `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${latitude}&longitude=${longitude}&count=1`
           );
 
-          if (!revGeoRes.ok) {
-            throw new Error("Failed to fetch location name data");
+          if (revGeoRes.ok) {
+            const revGeoData = await revGeoRes.json();
+            if (revGeoData.results && revGeoData.results.length > 0) {
+              const place = revGeoData.results[0];
+              locationName = `${place.name}${
+                place.admin1 ? ", " + place.admin1 : ""
+              }${place.country ? ", " + place.country : ""}`;
+            }
           }
+        } catch (err) {
+          setError("Failed to fetch location name data");
+          // continue with fallback locationName
+        }
 
-          const revGeoData = await revGeoRes.json();
-
-          let locationName = `Lat: ${latitude.toFixed(
-            2
-          )}, Lon: ${longitude.toFixed(2)}`;
-
-          if (revGeoData.results && revGeoData.results.length > 0) {
-            const place = revGeoData.results[0];
-            locationName = `${place.name}${
-              place.admin1 ? ", " + place.admin1 : ""
-            }${place.country ? ", " + place.country : ""}`;
-          }
-
+        try {
           const weatherRes = await fetch(
             proxyUrl +
               `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
